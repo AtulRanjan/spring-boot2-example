@@ -1,5 +1,5 @@
 server:
-  port: 8882
+  port: 7772
   servlet:
     context-path: /spring-boot2
 spring:
