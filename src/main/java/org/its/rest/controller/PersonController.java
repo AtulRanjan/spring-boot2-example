@@ -36,11 +36,11 @@ public class PersonController {
 	}*/
 	@DeleteMapping("/{personId}")
 	public ResponseEntity<Integer> deletePerson(@PathVariable Integer personId){
-		personService.deletePerson(personId);
+		personService.delete(personId);
 		return ResponseEntity.ok(personId); 
 	}
 	@PostMapping
 	public ResponseEntity<Person> createPerson(@RequestBody Person person){
-		return ResponseEntity.ok(personService.createPorson(person)); 
+		return ResponseEntity.ok(personService.create(person)); 
 	}
 }

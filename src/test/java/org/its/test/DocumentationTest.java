@@ -155,7 +155,7 @@ public class DocumentationTest {
 		String now = DateFormatUtils.format(new Date(), "dd MMM yyyy");
 		attributes.put("revdate", now);
 		attributes.put("numbered", "true");
-		attributes.put("pagenums", "right");
+		attributes.put("pagenums", "left");
 		attributes.put("docinfo1", "true");
 		attributes.put("idseparator", "true");
 		attributes.put("idprefix", "");

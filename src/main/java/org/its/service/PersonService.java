@@ -10,7 +10,7 @@ public interface PersonService {
 	
 	public Person getById(Integer personId);
 	
-	public void deletePerson(Integer personId);
+	public void delete(Integer personId);
 	
-	public Person createPorson(Person person);
+	public Person create(Person person);
 }
