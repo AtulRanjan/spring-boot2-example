@@ -1,0 +1,355 @@
+:title-logo-image: images/cover.jpg
+
+= Boot 2 Example
+
+
+[[_overview]]
+== Overview
+A rest API example with Spring Boot 2 Features!
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 0.1
+
+
+=== URI scheme
+[%hardbreaks]
+
+
+
+
+=== Tags
+
+* home-controller : Home Controller
+* person-controller : Person Controller
+
+
+
+
+[[_paths]]
+== Resources
+
+[[_home-controller_resource]]
+=== Home-controller
+Home Controller
+
+
+[[_sayhellousingget]]
+==== sayHello
+....
+GET /greeting
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+===== Example HTTP request
+
+====== Request path
+----
+/greeting
+----
+
+
+===== Example HTTP response
+
+====== Response 200
+[source,json]
+----
+"string"
+----
+
+
+[[_person-controller_resource]]
+=== Person-controller
+Person Controller
+
+
+[[_createpersonusingpost]]
+==== createPerson
+....
+POST /persons
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**person** +
+`__required__`|person|<<_person,Person>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_person,Person>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+===== Example HTTP request
+
+====== Request path
+----
+/persons
+----
+
+
+====== Request body
+[source,json]
+----
+{
+  "dob" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string"
+}
+----
+
+
+===== Example HTTP response
+
+====== Response 200
+[source,json]
+----
+{
+  "dob" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string"
+}
+----
+
+
+[[_getallpersonsusingget]]
+==== getAllPersons
+....
+GET /persons
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_person,Person>> > array
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+===== Example HTTP request
+
+====== Request path
+----
+/persons
+----
+
+
+===== Example HTTP response
+
+====== Response 200
+[source,json]
+----
+[ {
+  "dob" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string"
+} ]
+----
+
+
+[[_getbypersonidusingget]]
+==== getByPersonId
+....
+GET /persons/{personId}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**personId** +
+`__required__`|personId|integer (int32)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_person,Person>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+===== Example HTTP request
+
+====== Request path
+----
+/persons/0
+----
+
+
+===== Example HTTP response
+
+====== Response 200
+[source,json]
+----
+{
+  "dob" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string"
+}
+----
+
+
+[[_deletepersonusingdelete]]
+==== deletePerson
+....
+DELETE /persons/{personId}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**personId** +
+`__required__`|personId|integer (int32)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|integer (int32)
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+===== Example HTTP request
+
+====== Request path
+----
+/persons/0
+----
+
+
+===== Example HTTP response
+
+====== Response 200
+[source,json]
+----
+0
+----
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_person]]
+=== Person
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**dob** +
+__optional__|**Example** : `"string"`|string (date-time)
+|**firstName** +
+__optional__|**Example** : `"string"`|string
+|**id** +
+__optional__|**Example** : `0`|integer (int32)
+|**lastName** +
+__optional__|**Example** : `"string"`|string
+|===
+
+
+
+
+
